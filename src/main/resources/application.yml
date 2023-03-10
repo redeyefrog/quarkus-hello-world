@@ -1,0 +1,11 @@
+quarkus:
+  profile: dev # The profile aware file must be present in the exact same location as the main application.properties file. or change use JAVA VM -Dquarkus.profile=dev
+#  swagger-ui:
+#    always-include: true # By default, Swagger UI is only available when Quarkus is started in dev or test mode.
+  rest-client:
+    com.redeyefrog.rest.client.WireMockClient:
+      url: https://localhost:8443/mock
+      scope: javax.inject.Singleton
+      hostname-verifier: io.quarkus.restclient.NoopHostnameVerifier
+  tls:
+    trust-all: true
